@@ -11,6 +11,13 @@ def isThreeOrFive(n):
 def isPrime(p):
   """Returns boolean (True/False) if the value given is prime."""
 
+  if p < 2:
+    return False
+
+  for i in range(2, int(p ** 0.5) + 1):
+    if p % i == 0:
+      return False
+
   return True
 
 def isEven(n):
@@ -26,7 +33,6 @@ def addNum(numList, num):
 
   numList.append(num)
 
-
 def fibonacciSequence(value):
   """Returns a list of numbers in the fibonacci sequence up to the given value"""
 
@@ -41,6 +47,15 @@ def fibonacciSequence(value):
 
   return nums
 
+def isPalindrome(n):
+  """Returns boolean determination if a number reads the same forwards and backwards."""
+
+  text = str(n)
+  if text == text[::-1]:
+    return True
+  else:
+    return False
+
 #Test your new functions in this main
 def main():
   knownPrimes = [3, 7, 11, 13, 17]
@@ -52,7 +67,9 @@ def main():
 
   if isEven(num):
     print("%d is an even number" %(num))
-
+    
+  if isPalindrome(num):
+    print("%d is a palindrome" %(num))
 
 if __name__ == '__main__':
     main()
